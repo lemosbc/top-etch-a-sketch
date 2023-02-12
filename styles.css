@@ -1,0 +1,24 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+#container > div {
+  width: 30px;
+  height: 30px;
+  background-color: palegoldenrod;
+}
+
+#container > div:hover {
+  width: 30px;
+  height: 30px;
+  background-color: pink;
+}
+
+#container {
+  height: 480px;
+  width: 480px;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+}
