@@ -1,4 +1,9 @@
+// Initialize global variables
+
 var cell;
+let side;
+
+// Define functions
 
 function makeDivs(numDivs) {
   for (let i = 0; i < numDivs; i++) {
@@ -13,8 +18,6 @@ function makeDivs(numDivs) {
     });
   }
 }
-
-makeDivs(256);
 
 function removeElementsByClass(className) {
   const elements = document.getElementsByClassName(className);
@@ -32,8 +35,6 @@ function gridLayout(gridSide) {
   ).style.gridTemplateRows = `repeat(${gridSide}, 1fr)`;
 }
 
-let side;
-
 function promptMe() {
   do {
     side = prompt("Enter number of squares per side (max 100)");
@@ -48,4 +49,13 @@ function promptMe() {
   gridLayout(side);
 }
 
+// Event Listeners
+
 document.getElementById("grid-button").addEventListener("click", promptMe);
+document.getElementById("clear").addEventListener("click", function () {
+  location.reload();
+});
+
+// Call default grid
+
+makeDivs(256);
