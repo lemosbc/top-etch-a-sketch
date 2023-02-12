@@ -6,16 +6,15 @@ function makeDivs(numDivs) {
     cell.classList.add("cell");
     document.getElementById("container").appendChild(cell);
   }
+  let cellList = document.getElementsByClassName("cell");
+  for (let i = 0; i < cellList.length; i++) {
+    cellList[i].addEventListener("mouseover", function () {
+      cellList[i].style.backgroundColor = "pink";
+    });
+  }
 }
 
 makeDivs(256);
-
-let cellList = document.getElementsByClassName("cell");
-for (let i = 0; i < cellList.length; i++) {
-  cellList[i].addEventListener("mouseover", function () {
-    cellList[i].style.backgroundColor = "pink";
-  });
-}
 
 function removeElementsByClass(className) {
   const elements = document.getElementsByClassName(className);
