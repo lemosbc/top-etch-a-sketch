@@ -3,17 +3,17 @@ body {
   padding: 0px;
 }
 
-#container > div {
+.cell {
   width: 30px;
   height: 30px;
   background-color: palegoldenrod;
 }
 
-#container > div:hover {
+/*#container > div:hover {
   width: 30px;
   height: 30px;
   background-color: pink;
-}
+}*/
 
 #container {
   height: 480px;
