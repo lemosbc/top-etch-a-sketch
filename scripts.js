@@ -2,6 +2,7 @@
 
 var cell;
 let side;
+let cellList;
 
 // Define functions
 
@@ -11,7 +12,7 @@ function makeDivs(numDivs) {
     cell.classList.add("cell");
     document.getElementById("container").appendChild(cell);
   }
-  let cellList = document.getElementsByClassName("cell");
+  cellList = document.getElementsByClassName("cell");
   for (let i = 0; i < cellList.length; i++) {
     cellList[i].addEventListener("mouseover", function () {
       cellList[i].style.backgroundColor = "pink";
@@ -49,12 +50,40 @@ function promptMe() {
   gridLayout(side);
 }
 
+// Rainbow function
+
+function colorChangeOnHover() {
+  let chosenColor;
+  function randomColor() {
+    function randomBetween(min, max) {
+      let number;
+      number = min + Math.floor(Math.random() * (max - min + 1));
+      return number;
+    }
+    let r = randomBetween(0, 255);
+    let g = randomBetween(0, 255);
+    let b = randomBetween(0, 255);
+    chosenColor = `rgb(${r},${g},${b})`;
+    return chosenColor;
+  }
+  cellList = document.getElementsByClassName("cell");
+  for (let i = 0; i < cellList.length; i++) {
+    cellList[i].addEventListener("mouseover", function () {
+      cellList[i].style.backgroundColor = `${randomColor()}`;
+    });
+  }
+}
+
 // Event Listeners
 
 document.getElementById("grid-button").addEventListener("click", promptMe);
 document.getElementById("clear").addEventListener("click", function () {
   location.reload();
 });
+
+document
+  .getElementById("rainbow")
+  .addEventListener("click", colorChangeOnHover);
 
 // Call default grid
 
